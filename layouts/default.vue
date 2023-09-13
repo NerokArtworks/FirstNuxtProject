@@ -1,6 +1,6 @@
 <template>
   <BaseHeader></BaseHeader>
-  <main>
+  <main class="min-h-screen relative">
     <slot></slot>
   </main>
 </template>
