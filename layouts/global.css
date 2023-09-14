@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Bagoss";
+    src: local("Bagoss"),
+        url(~/assets/font/BagossCondensedTRIAL-Regular.otf) format("truetype");
+}
+
+html {
+    font-family: "Bagoss";
+}

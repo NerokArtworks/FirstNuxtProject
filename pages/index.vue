@@ -1,10 +1,55 @@
 <script setup>
-import { ref } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-const posts = ref([]);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-posts.value = await response.json();
+const main = ref();
+const work = ref();
+let ctx;
+let ctxWork;
+
+onMounted(() => {
+  ctx = gsap.context((self) => {
+    const lines = self.selector('.content__title');
+    lines.forEach((line) => {
+      gsap.to(line, {
+        y: 100,
+        scrollTrigger: {
+          trigger: line,
+          start: 'top center',
+          end: 'top 0%',
+          scrub: true,
+        },
+      });
+    });
+  }, main.value); // <- Scope!
+
+  ctxWork = gsap.context((self) => {
+    const lines = self.selector('.split-line > div');
+    lines.forEach((line) => {
+      gsap.from(line, {
+        yPercent: 100,
+        rotation: 5,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: line,
+          start: 'bottom bottom',
+          end: 'top 20%',
+          ease: 'Power4.easeOut',
+          scrub: true
+        },
+      });
+    });
+  }, work.value); // <- Scope!
+});
+
+onUnmounted(() => {
+  ctx.revert(); // <- Easy Cleanup!
+  ctxWork.revert(); // <- Easy Cleanup!
+});
+
 </script>
 
 <template>
@@ -29,7 +74,7 @@ posts.value = await response.json();
       </div>
       <div class="content flex items-end py-20 min-h-screen">
         <div class="px-layout w-full px-5">
-          <div class="grid grid-cols-2 gap-x-mb lg:gap-x-lg lg:grid-cols-12 content-between lg:items-end min-h-full">
+          <div class="grid grid-cols-2 gap-x-mb lg:gap-x-lg lg:grid-cols-12 content-between lg:items-end min-h-full" ref="main">
             <div class="col-start-1 col-end-3 lg:col-start-1 lg:col-end-9">
               <div class="content__title">
                 <div class="text-9xl lg:text-big-title pb-16" style="line-height: 8rem;">
@@ -101,8 +146,17 @@ posts.value = await response.json();
   <section class="min-h-screen relative bg-white">
     <div class="works-featured-list pt-20">
         <div class="works__outer">
-            <div class="px-layout px-5">
-                <h2 class="text-9xl">Our Work</h2>
+            <div class="px-layout px-5" ref="work">
+                <h2 class="text-9xl split-line">
+                  <div class="split-line relative text-start block">
+                    <div class="relative inline">
+                      Our
+                    </div>
+                    <div class="relative inline">
+                      Work
+                    </div>
+                  </div>
+                </h2>
             </div>
         </div>
     </div>
