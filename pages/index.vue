@@ -12,14 +12,14 @@ let ctxWork;
 
 onMounted(() => {
   ctx = gsap.context((self) => {
-    const lines = self.selector('.content__title');
+    const lines = self.selector('.scroll');
     lines.forEach((line) => {
       gsap.to(line, {
-        y: 100,
+        y: 200,
         scrollTrigger: {
           trigger: line,
           start: 'top center',
-          end: 'top 0%',
+          end: 'top -100%',
           scrub: true,
         },
       });
@@ -31,12 +31,12 @@ onMounted(() => {
     lines.forEach((line) => {
       gsap.from(line, {
         yPercent: 100,
-        rotation: 5,
+        rotation: 1,
         opacity: 0,
         scrollTrigger: {
           trigger: line,
-          start: 'bottom bottom',
-          end: 'top 20%',
+          start: 'top bottom',
+          end: 'top 80%',
           ease: 'Power4.easeOut',
           scrub: true
         },
@@ -73,8 +73,8 @@ onUnmounted(() => {
         </div>
       </div>
       <div class="content flex items-end py-20 min-h-screen">
-        <div class="px-layout w-full px-5">
-          <div class="grid grid-cols-2 gap-x-mb lg:gap-x-lg lg:grid-cols-12 content-between lg:items-end min-h-full" ref="main">
+        <div class="px-layout w-full px-5" ref="main">
+          <div class="grid grid-cols-2 gap-x-mb lg:gap-x-lg lg:grid-cols-12 content-between lg:items-end min-h-full scroll">
             <div class="col-start-1 col-end-3 lg:col-start-1 lg:col-end-9">
               <div class="content__title">
                 <div class="text-9xl lg:text-big-title pb-16" style="line-height: 8rem;">

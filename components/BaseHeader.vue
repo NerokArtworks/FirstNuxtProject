@@ -51,8 +51,10 @@
             </div>
             <div class="clocks grow flex justify-end">
               <div class="pointer-events-auto text-right">
-                <div class="clock">FR 07:32 p. m.</div>
-                <div class="clock clock--light">VNM 12:33 a. m.</div>
+                <div class="clock text-xs">FR 07:32 p. m.</div>
+                <div class="clock text-sm text-bold clock--light opacity-60">
+                  VNM 12:33 a. m.
+                </div>
               </div>
             </div>
           </div>
