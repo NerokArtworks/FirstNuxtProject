@@ -3,7 +3,8 @@ import Lenis from "@studio-freight/lenis";
 
 onMounted(() => {
   const lenis = new Lenis({
-    duration: 1.5,
+    lerp: 0.1,
+    duration: 2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   });
 
@@ -21,6 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Cursor></Cursor>
   <BaseHeader></BaseHeader>
   <main class="min-h-screen relative">
     <slot></slot>

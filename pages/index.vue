@@ -1,6 +1,5 @@
 <script setup>
 import gsap from "gsap";
-import Lenis from '@studio-freight/lenis'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -13,8 +12,6 @@ let ctx;
 let ctxWork;
 
 onMounted(() => {
- 
-
   ctx = gsap.context((self) => {
     const lines = self.selector('.scroll');
     lines.forEach((line) => {
@@ -47,6 +44,9 @@ onMounted(() => {
       });
     });
   }, work.value); // <- Scope!
+
+
+  
 });
 
 onUnmounted(() => {
@@ -220,7 +220,7 @@ onUnmounted(() => {
                   <div class="works__list__item">
                     <div class="work__thumbnail">
                       <div class="work__outer">
-                        <a href="">
+                        <a href="" class="animate-media-hover">
                           <figure class="work__inner">
                             <div class="work__image overflow-hidden">
                               <div class="work__image__inner absolute inset-0">
@@ -240,7 +240,7 @@ onUnmounted(() => {
                   <div class="works__list__item">
                     <div class="work__thumbnail">
                       <div class="work__outer">
-                        <a href="">
+                        <a href="" class="animate-media-hover">
                           <figure class="work__inner">
                             <div class="work__image overflow-hidden">
                               <div class="work__image__inner absolute inset-0">
@@ -259,7 +259,7 @@ onUnmounted(() => {
                   <div class="works__list__item">
                     <div class="work__thumbnail">
                       <div class="work__outer">
-                        <a href="">
+                        <a href="" class="animate-media-hover">
                           <figure class="work__inner">
                             <div class="work__image overflow-hidden">
                               <div class="work__image__inner absolute inset-0">
@@ -278,7 +278,7 @@ onUnmounted(() => {
                   <div class="works__list__item">
                     <div class="work__thumbnail">
                       <div class="work__outer">
-                        <a href="">
+                        <a href="" class="animate-media-hover">
                           <figure class="work__inner">
                             <div class="work__image overflow-hidden">
                               <div class="work__image__inner absolute inset-0">
@@ -297,14 +297,14 @@ onUnmounted(() => {
                   <div class="works__list__item">
                     <div class="work__thumbnail">
                       <div class="work__outer">
-                        <a href="">
+                        <a href="" class="animate-media-hover">
                           <figure class="work__inner">
                             <div class="work__image overflow-hidden">
                               <div class="work__image__inner absolute inset-0">
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                     <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/KR_7cf668dc14.JPG 1920w">
-                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG 1920w" style="opacity: 1;"></picture>
+                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover target" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG 1920w" style="opacity: 1;"></picture>
                                 </div>
                               </div>
                             </div>
@@ -350,7 +350,7 @@ onUnmounted(() => {
         -moz-column-gap: 5rem;
         column-gap: 5rem;
         grid-template-columns: repeat(12,minmax(0,1fr));
-        /* margin-top: 120rem; */
+        margin-top: 8rem;
     }
 }
 
