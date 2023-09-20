@@ -8,10 +8,16 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const main = ref();
 const work = ref();
+let cursorAnimating = false; // Variable de estado para controlar si el cursor está animando
+let currentEvent = null; // Variable para hacer un seguimiento del evento actual
+
 let ctx;
 let ctxWork;
 
 onMounted(() => {
+  const cursor = document.querySelector(".cursor");
+  const targetElements = document.querySelectorAll(".will-animate-image");
+
   ctx = gsap.context((self) => {
     const lines = self.selector('.scroll');
     lines.forEach((line) => {
@@ -25,6 +31,94 @@ onMounted(() => {
         },
       });
     });
+    
+    if (cursor != undefined) {
+      targetElements.forEach((element) => {
+        element.addEventListener("mouseover", (e) => {
+          if (!cursorAnimating || currentEvent !== "mouseover") {
+            if (currentEvent !== "mouseover") {
+              console.log("Repitiendo mousein");
+              currentEvent = "mouseover"; // Actualiza el evento actual
+              cursorAnimating = true; // Inicia la animación del cursor
+              gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out",
+                onComplete: () => {
+                  cursorAnimating = false; // Finaliza la animación del cursor
+                }
+              });
+            } else {
+              currentEvent = "mouseover"; // Actualiza el evento actual
+              cursorAnimating = true; // Inicia la animación del cursor
+
+              // Detén cualquier animación en curso en el elemento del cursor
+              gsap.killTweensOf(cursor);
+
+              gsap.fromTo(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                scale: 1.5,
+                opacity: 0,
+              }, {
+                x: e.clientX,
+                y: e.clientY,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out",
+                onComplete: () => {
+                  cursorAnimating = false; // Finaliza la animación del cursor
+                },
+              });
+            }
+          }
+        });
+
+        element.addEventListener("mouseleave", (e) => {
+          if (!cursorAnimating || currentEvent !== "mouseleave") {
+            currentEvent = "mouseleave"; // Actualiza el evento actual
+            cursorAnimating = true; // Inicia la animación del cursor
+
+            // Detén cualquier animación en curso en el elemento del cursor
+            gsap.killTweensOf(cursor);
+
+            gsap.fromTo(
+              cursor,
+              {
+                x: e.clientX,
+                y: e.clientY,
+                scale: 1,
+                opacity: 1,
+              },
+              {
+                scale: 0.5,
+                opacity: 0,
+                ease: "circ.in",
+                duration: .6,
+                onComplete: () => {
+                  cursorAnimating = false; // Finaliza la animación del cursor
+                  if (currentEvent == "mouseleave") {
+                    gsap.to(cursor, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    scale: 1.5,
+                    opacity: 0,
+                    duration: 0
+                  })
+                  }
+                },
+              }
+            );
+          }
+        });
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, { x: e.clientX, y: e.clientY, ease: "power3.out" });
+      });
+    }
   }, main.value); // <- Scope!
 
   ctxWork = gsap.context((self) => {
@@ -45,7 +139,7 @@ onMounted(() => {
     });
   }, work.value); // <- Scope!
 
-
+ 
   
 });
 
@@ -540,5 +634,9 @@ onUnmounted(() => {
 
 .split-line {
   overflow: hidden;
+}
+
+.split-word {
+  margin-right: 4px;
 }
 </style>

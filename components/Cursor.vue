@@ -1,25 +1,14 @@
 <script setup>
-onMounted(() => {
-  const customCursor = document.querySelector(".cursor");
+import { gsap } from "gsap";
 
-  document.addEventListener("mousemove", (e) => {
-    customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1.5)`;
-  });
+// const cursor = ref();
+// let ctx;
 
-  // Al hacer hover sobre elementos con clase "target"
-  //   const targetElements = document.querySelectorAll(".will-animate-image");
-  //   targetElements.forEach((element) => {
-  //     element.addEventListener("mouseenter", (e) => {
-  //       customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1)`;
-  //       customCursor.style.opacity = 1;
-  //       console.log("hasiendo el hover");
-  //     });
+onMounted(() => {});
 
-  //     element.addEventListener("mouseleave", (e) => {
-  //       customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1.5)`;
-  //       customCursor.style.opacity = 0;
-  //     });
-  //   });
+// Limpia el contexto cuando el componente se desmonta
+onUnmounted(() => {
+  ctx.revert();
 });
 </script>
 
