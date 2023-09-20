@@ -16,6 +16,7 @@ let ctxWork;
 
 onMounted(() => {
   const cursor = document.querySelector(".cursor");
+  const cursorText = document.querySelector(".cursor-text");
   const targetElements = document.querySelectorAll(".will-animate-image");
 
   ctx = gsap.context((self) => {
@@ -50,6 +51,12 @@ onMounted(() => {
                   cursorAnimating = false; // Finaliza la animación del cursor
                 }
               });
+              gsap.to(cursorText, {
+                opacity: 1,
+                y: '0%',
+                rotate: 0,
+                ease: "power2.out"
+              });
             } else {
               currentEvent = "mouseover"; // Actualiza el evento actual
               cursorAnimating = true; // Inicia la animación del cursor
@@ -71,6 +78,17 @@ onMounted(() => {
                 onComplete: () => {
                   cursorAnimating = false; // Finaliza la animación del cursor
                 },
+              });
+
+              gsap.fromTo(cursorText, {
+                y: '100%',
+                rotate: 10,
+                opacity: 0
+              }, {
+                y: '0%',
+                rotate: 0,
+                opacity: 1,
+                ease: "power2.out"
               });
             }
           }
@@ -111,6 +129,18 @@ onMounted(() => {
                 },
               }
             );
+
+            gsap.fromTo(cursorText, {
+                y: '0%',
+                rotate: 0,
+                opacity: 1
+              }, {
+                y: '100%',
+                rotate: 10,
+                opacity: 0,
+                ease: "circ.in",
+                duration: .5
+              });
           }
         });
       });

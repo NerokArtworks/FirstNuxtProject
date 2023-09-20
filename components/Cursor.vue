@@ -15,7 +15,7 @@ onUnmounted(() => {
 <template>
   <div class="cursor">
     <div class="outer">
-      <div class="inner">
+      <div class="inner overflow-hidden w-full">
         <div class="cursor-text">
           <span>View</span>
         </div>
@@ -32,13 +32,13 @@ onUnmounted(() => {
   background: hsla(0, 0%, 42%, 0.5);
   border-radius: 50%;
   display: none;
-  height: 8rem;
+  height: 9rem;
   justify-content: center;
   left: 0;
   pointer-events: none;
   position: fixed;
   top: 0;
-  width: 8rem;
+  width: 9rem;
   z-index: 999;
 }
 
@@ -48,18 +48,18 @@ onUnmounted(() => {
   }
 }
 
-.inner {
-  overflow: hidden;
-}
-
 .cursor-text {
   color: #fff;
   /* font-size: 4rem; */
-  line-height: 8rem;
+  /* line-height: 8rem; */
   text-transform: uppercase;
+  transform: translateY(100%);
+  transform-origin: top left;
+  height: min-content;
 }
 
 .cursor-text span {
   display: block;
+  font-size: 1.1rem;
 }
 </style>
