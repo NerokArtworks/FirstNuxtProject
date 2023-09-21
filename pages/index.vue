@@ -35,6 +35,7 @@ onMounted(() => {
     
     if (cursor != undefined) {
       targetElements.forEach((element) => {
+        // MOUSEOVER
         element.addEventListener("mouseover", (e) => {
           if (!cursorAnimating || currentEvent !== "mouseover") {
             if (currentEvent !== "mouseover") {
@@ -94,6 +95,7 @@ onMounted(() => {
           }
         });
 
+        // MOUSELEAVE
         element.addEventListener("mouseleave", (e) => {
           if (!cursorAnimating || currentEvent !== "mouseleave") {
             currentEvent = "mouseleave"; // Actualiza el evento actual
@@ -107,7 +109,7 @@ onMounted(() => {
               {
                 x: e.clientX,
                 y: e.clientY,
-                scale: 1,
+                scale: 1.005,
                 opacity: 1,
               },
               {
@@ -143,12 +145,30 @@ onMounted(() => {
               });
           }
         });
+
+        // WORK LIST IMAGES
+        gsap.fromTo(element, {
+          opacity: 0,
+          scale: 1.5
+        }, {
+          opacity: 1,
+          scale: 1,
+          ease: 'power2.out',
+          duration: 1,
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 80%',
+            end: 'bottom bottom',
+            toggleActions: "play pause resume reset"
+          },
+        });
       });
 
       document.addEventListener("mousemove", (e) => {
         gsap.to(cursor, { x: e.clientX, y: e.clientY, ease: "power3.out" });
       });
     }
+
   }, main.value); // <- Scope!
 
   ctxWork = gsap.context((self) => {
@@ -190,7 +210,7 @@ onUnmounted(() => {
             playsinline=""
             loop=""
             muted=""
-            class="will-animate-image h-full w-full left-0 top-0 object-cover absolute"
+            class="h-full w-full left-0 top-0 object-cover absolute"
             style="opacity: 1"
           >
             <source
@@ -271,6 +291,8 @@ onUnmounted(() => {
       </div>
     </div>
   </section>
+
+  <!-- WORK LIST SECTION -->
   <section class="min-h-screen relative bg-white works-featured-list">
     <div class="works-featured-list">
         <div class="works__outer">
@@ -351,7 +373,7 @@ onUnmounted(() => {
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                     <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/Tag_Carrera_AC_3_57ba893444.jpg 1920w">
-                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1920w" style="opacity: 1;">
+                                    <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1920w" style="opacity: 1;">
                                   </picture>
                                 </div>
                               </div>
@@ -371,7 +393,7 @@ onUnmounted(() => {
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                     <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/3_4b4e5dcbf5.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/3_4b4e5dcbf5.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/3_4b4e5dcbf5.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/3_4b4e5dcbf5.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/3_4b4e5dcbf5.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/3_4b4e5dcbf5.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/3_4b4e5dcbf5.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/3_4b4e5dcbf5.jpg 1920w">
-                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/3_4b4e5dcbf5.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/3_4b4e5dcbf5.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/3_4b4e5dcbf5.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/3_4b4e5dcbf5.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/3_4b4e5dcbf5.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/3_4b4e5dcbf5.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/3_4b4e5dcbf5.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/3_4b4e5dcbf5.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/3_4b4e5dcbf5.jpg 1920w" style="opacity: 1;"></picture>
+                                    <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/3_4b4e5dcbf5.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/3_4b4e5dcbf5.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/3_4b4e5dcbf5.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/3_4b4e5dcbf5.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/3_4b4e5dcbf5.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/3_4b4e5dcbf5.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/3_4b4e5dcbf5.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/3_4b4e5dcbf5.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/3_4b4e5dcbf5.jpg 1920w" style="opacity: 1;"></picture>
                                 </div>
                               </div>
                             </div>
@@ -390,7 +412,7 @@ onUnmounted(() => {
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                   <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1920w">
-                                  <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1920w" style="opacity: 1;"></picture>
+                                  <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/any_hublot_6_gigapixel_low_res_scale_4_00x_4068ba4f19.jpeg 1920w" style="opacity: 1;"></picture>
                                 </div>
                               </div>
                             </div>
@@ -409,7 +431,7 @@ onUnmounted(() => {
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                     <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1920w">
-                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1920w" style="opacity: 1;"></picture>
+                                    <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1920w" style="opacity: 1;"></picture>
                                 </div>
                               </div>
                             </div>
@@ -428,7 +450,7 @@ onUnmounted(() => {
                                 <div class="media h-full">
                                   <picture class="flex h-full">
                                     <source type="image/webp" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_webp/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_webp/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_webp/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_webp/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_webp/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_webp/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_webp/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_webp/KR_7cf668dc14.JPG 1920w">
-                                    <img onerror="this.setAttribute('data-error', 1)" class="will-animate-image object-cover target" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG 1920w" style="opacity: 1;"></picture>
+                                    <img class="will-animate-image object-cover target" draggable="false" data-nuxt-pic="" src="https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG 1920w" style="opacity: 1;"></picture>
                                 </div>
                               </div>
                             </div>

@@ -3,7 +3,7 @@ import Lenis from "@studio-freight/lenis";
 
 onMounted(() => {
   const lenis = new Lenis({
-    lerp: 0.1,
+    lerp: 0.05,
     duration: 2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   });

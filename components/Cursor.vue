@@ -40,6 +40,8 @@ onUnmounted(() => {
   top: 0;
   width: 9rem;
   z-index: 999;
+  opacity: 0;
+  transform: scale(1.5);
 }
 
 @media (hover: hover) and (pointer: fine) {
