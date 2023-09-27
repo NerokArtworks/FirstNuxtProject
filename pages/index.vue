@@ -161,7 +161,7 @@ onMounted(() => {
             trigger: element,
             start: 'top 80%',
             end: 'bottom bottom',
-            toggleActions: "play pause resume reset"
+            toggleActions: "play resume resume reset"
           },
         });
       });
@@ -174,6 +174,17 @@ onMounted(() => {
   }, main.value); // <- Scope!
 
   ctxWork = gsap.context((self) => {
+    // const workListSection = self.selector('.works-featured-list.bg-white');
+    // gsap.to(workListSection, {
+    //   yPercent: -20,
+    //   scrollTrigger: {
+    //     trigger: workListSection,
+    //     start: 'top bottom',
+    //     end: 'bottom top',
+    //     scrub: true
+    //   },
+    // })
+
     const lines = self.selector('.split-line > div');
     lines.forEach((line) => {
       gsap.from(line, {
@@ -310,10 +321,11 @@ onUnmounted(() => {
     </section>
 
     <!-- WORK LIST SECTION -->
-    <section class="min-h-screen relative works-featured-list">
+    <!-- Poner bg-white al section para activar gsap bg animation -->
+    <section class="min-h-screen relative works-featured-list" ref="work"> 
       <div class="works-featured-list">
           <div class="works__outer">
-              <div class="px-layout px-5" ref="work">
+              <div class="px-layout px-5">
                   <h2 class="text-9xl">
                     <div class="split-line" style="display: block; text-align: start; position: relative;">
                       <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;" class="split-word">
