@@ -401,7 +401,7 @@ onUnmounted(() => {
                                 <div class="work__image__inner absolute inset-0">
                                   <div class="media h-full">
                                     <picture class="flex h-full">
-                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/01.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/Tag_Carrera_AC_3_57ba893444.jpg 1920w" style="opacity: 1;">
+                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/01.jpg" style="opacity: 1;">
                                     </picture>
                                   </div>
                                 </div>
@@ -420,7 +420,7 @@ onUnmounted(() => {
                                 <div class="work__image__inner absolute inset-0">
                                   <div class="media h-full">
                                     <picture class="flex h-full">
-                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/02.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/3_4b4e5dcbf5.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/3_4b4e5dcbf5.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/3_4b4e5dcbf5.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/3_4b4e5dcbf5.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/3_4b4e5dcbf5.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/3_4b4e5dcbf5.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/3_4b4e5dcbf5.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/3_4b4e5dcbf5.jpg 1920w" style="opacity: 1;">
+                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/02.jpg" style="opacity: 1;">
                                     </picture>
                                   </div>
                                 </div>
@@ -458,7 +458,7 @@ onUnmounted(() => {
                                 <div class="work__image__inner absolute inset-0">
                                   <div class="media h-full">
                                     <picture class="flex h-full">
-                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/05.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/CARBON_Matiere_noir_Valentin_Fougeray_WEB_0_731b7b9c28.jpg 1920w" style="opacity: 1;"></picture>
+                                      <img class="will-animate-image object-cover" draggable="false" data-nuxt-pic="" src="/img/05.jpg" style="opacity: 1;"></picture>
                                   </div>
                                 </div>
                               </div>
@@ -476,7 +476,7 @@ onUnmounted(() => {
                                 <div class="work__image__inner absolute inset-0">
                                   <div class="media h-full">
                                     <picture class="flex h-full">
-                                      <img class="will-animate-image object-cover target" draggable="false" data-nuxt-pic="" src="/img/04.jpg" sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1440px) 1440px, (max-width: 1536px) 1536px, (max-width: 1680px) 1680px, 1920px" srcset="https://server.ac3-studio.com/uploads/w_320,f_jpeg/KR_7cf668dc14.JPG 320w, https://server.ac3-studio.com/uploads/w_480,f_jpeg/KR_7cf668dc14.JPG 480w, https://server.ac3-studio.com/uploads/w_768,f_jpeg/KR_7cf668dc14.JPG 768w, https://server.ac3-studio.com/uploads/w_1024,f_jpeg/KR_7cf668dc14.JPG 1024w, https://server.ac3-studio.com/uploads/w_1440,f_jpeg/KR_7cf668dc14.JPG 1440w, https://server.ac3-studio.com/uploads/w_1536,f_jpeg/KR_7cf668dc14.JPG 1536w, https://server.ac3-studio.com/uploads/w_1680,f_jpeg/KR_7cf668dc14.JPG 1680w, https://server.ac3-studio.com/uploads/w_1920,f_jpeg/KR_7cf668dc14.JPG 1920w" style="opacity: 1;">
+                                      <img class="will-animate-image object-cover target" draggable="false" data-nuxt-pic="" src="/img/04.jpg" style="opacity: 1;">
                                     </picture>
                                   </div>
                                 </div>
