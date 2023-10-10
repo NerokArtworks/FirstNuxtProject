@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "custom-build": "cp netlify.toml .nuxt/dist/netlify.toml && nuxt build"
+    "custom-build": "nuxt build && cp netlify.toml .nuxt/dist/netlify.toml"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
