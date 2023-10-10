@@ -1,3 +1,6 @@
+[build]
+command = "npm run custom-build"
+
 [[redirects]]
 from = "*"
 to = "/"
