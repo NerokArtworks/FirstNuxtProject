@@ -3,6 +3,10 @@ from = "*"
 to = "/"
 
 [[redirects]]
+from = "/"
+to = "/"
+
+[[redirects]]
 from = "/contact"
 to = "/contact"
 
