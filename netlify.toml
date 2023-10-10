@@ -1,0 +1,19 @@
+[[redirects]]
+from = "*"
+to = "/"
+
+[[redirects]]
+from = "/contact"
+to = "/contact"
+
+[[redirects]]
+from = "/works"
+to = "/works"
+
+[[redirects]]
+from = "/studio"
+to = "/studio"
+
+[[redirects]]
+from = "/services"
+to = "/services"
